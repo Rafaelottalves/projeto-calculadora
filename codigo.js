@@ -1,4 +1,4 @@
-let resultado = document.getElementById('resultado')
+/* let resultado = document.getElementById('resultado')
 
 function insert(num) {
     resultado.innerHTML += num
@@ -19,3 +19,24 @@ function calcular() {
         resultado.innerHTML = ''
     }
 }
+ */
+
+let resultado = document.querySelector('#tela')
+let teclas = [...document.querySelectorAll('#teclas > button')]
+
+teclas.forEach((item) => {
+    item.addEventListener('click', (evt) => {
+        let tecla = evt.target
+        
+        if(tecla.innerHTML == '=') {
+            let calc = eval(resultado.innerHTML)
+            resultado.innerHTML = calc
+        } else if(tecla.innerHTML == 'C') {
+            resultado.innerHTML = ''
+        } else if(tecla.innerHTML == '&lt;') {
+            resultado.innerHTML = resultado.innerHTML.substring(0, resultado.innerHTML.length-1)
+        } else {
+            resultado.innerHTML += tecla.innerHTML
+        }
+    })
+})
