@@ -30,13 +30,21 @@ teclas.forEach((item) => {
         
         if(tecla.innerHTML == '=') {
             let calc = eval(resultado.innerHTML)
+
             resultado.innerHTML = calc
-        } else if(tecla.innerHTML == 'C') {
+        }
+        else if(tecla.innerHTML == 'C') {
             resultado.innerHTML = ''
-        } else if(tecla.innerHTML == '&lt;') {
+        }
+        else if(tecla.innerHTML == '&lt;') {
             resultado.innerHTML = resultado.innerHTML.substring(0, resultado.innerHTML.length-1)
-        } else {
-            resultado.innerHTML += tecla.innerHTML
+        }
+        else {
+            if(tecla.innerHTML == 'x') {
+                resultado.innerHTML += '*'
+            } else {
+                resultado.innerHTML += tecla.innerHTML
+            }
         }
     })
 })
